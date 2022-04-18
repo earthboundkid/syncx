@@ -27,13 +27,13 @@ func (m *Mutex[T]) Lock(f func(value *T)) {
 	m.value = value
 }
 
-func (m *Mutex[T]) Read() T {
+func (m *Mutex[T]) Load() T {
 	m.mu.RLock()
 	defer m.mu.RUnlock()
 	return m.value
 }
 
-func (m *Mutex[T]) Write(value T) {
+func (m *Mutex[T]) Store(value T) {
 	m.mu.Lock()
 	defer m.mu.Unlock()
 	m.value = value

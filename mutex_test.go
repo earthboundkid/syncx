@@ -18,7 +18,7 @@ func ExampleMutex() {
 		})
 	}
 	wg.Wait()
-	fmt.Println(n.Read())
+	fmt.Println(n.Load())
 	// Output:
 	// 4294967296
 }
